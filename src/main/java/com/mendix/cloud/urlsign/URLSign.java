@@ -22,5 +22,9 @@ public class URLSign {
         return new URLVerifier(publicKey).verify(request);
     }
 
+    public static boolean verify(String publicKey, URI uri) throws URLSignException {
+        return new URLVerifier(publicKey).verify(uri);
+    }
+
 }
 
