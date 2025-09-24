@@ -41,7 +41,7 @@ public class URLVerifier {
         this(KeyImporter.importPublicKey(publicKeyFile));
     }
 
-    private URLVerifier(PublicKey publicKey) throws URLSignException {
+    public URLVerifier(PublicKey publicKey) throws URLSignException {
         key = publicKey;
 
         try {

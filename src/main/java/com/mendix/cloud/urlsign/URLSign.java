@@ -5,6 +5,7 @@ import com.mendix.cloud.urlsign.service.URLSigner;
 import com.mendix.cloud.urlsign.service.URLVerifier;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.PublicKey;
 import java.net.URI;
 
 public class URLSign {
@@ -20,6 +21,10 @@ public class URLSign {
 
     public static boolean verify(String publicKey, HttpServletRequest request) throws URLSignException {
         return new URLVerifier(publicKey).verify(request);
+    }
+
+    public static boolean verify(PublicKey publicKey, URI uri) throws URLSignException {
+        return new URLVerifier(publicKey).verify(uri);
     }
 
 }
